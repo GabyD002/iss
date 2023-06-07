@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.example.demo.model.Bug" table = "bugs">
+        <id name = "id" type="int" column = "bugid">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" column="bugname"/>
+        <property name="description" type="string" column="bugdesc"/>
+        <property name="status" column="bugstatus">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.example.demo.model.BugStatus</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>
